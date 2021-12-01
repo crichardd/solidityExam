@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title> Page test</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+
+  </head>
+  <body class="no-transition">
+    <header>
+      <div class="container">
+        <!--<a href="#"><img src="sananes.jpg" alt="Aled" id="img-logo"></a>-->
+        <nav>
+          <ul>
+            <li> <a> Solidity Exam - Chloé RICHARD - 01/12/2021</a></li></ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="section1">
+        <div class="container">
+          <script type="text/javascript">
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+            web3.eth.defaultAccount = web3.eth.accounts[0];
+            const contract_address = '0x892120cEF3c80BA09D97CfDB9380941464776cb2';
+            const abi =  [
+              {
+                "constant": true,
+                "inputs": [
+                  {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                  }
+                ],
+                "name": "balanceOf",
+                "outputs": [
+                  {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                  }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "constant": true,
+                "inputs": [
+                  {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                  }
+                ],
+                "name": "clients",
+                "outputs": [
+                  {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                  }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "constant": true,
+                "inputs": [],
+                "name": "name",
+                "outputs": [
+                  {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                  }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "constant": false,
+                "inputs": [],
+                "name": "deposit",
+                "outputs": [],
+                "payable": true,
+                "stateMutability": "payable",
+                "type": "function"
+              },
+              {
+                "constant": false,
+                "inputs": [],
+                "name": "withdraw",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+              },
+              {
+                "constant": true,
+                "inputs": [],
+                "name": "balance",
+                "outputs": [
+                  {
+                    "internalType": "address[]",
+                    "name": "",
+                    "type": "address[]"
+                  }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "constant": true,
+                "inputs": [],
+                "name": "bankBalance",
+                "outputs": [
+                  {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                  }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+              }
+            ];
+            var ContractInstance = web3.eth.contract(abi);
+            var Contract = ContractInstance.at(contract_address);
+            console.log(Contract.name());
+            document.write(Contract.name());
+            document.write("<br>");
+            document.write(Contract.bankBalance());
+            document.write("<br>");
+            document.write(Contract.withdraw());
+            document.write("<br>");
+            //document.write(Contract.balance());
+            document.write("<br>");
+            document.write(Contract.deposit({from: web3.eth.accounts[1], value: 10000000000000000000}));
+            document.write("<button type='button' name='button'>");
+            document.write("</button>");
+            document.write("<input type='text' name='' value=''>");
+
+          </script>
+
+        </div>
+
+
+      </section>
+
+    </main>
+
+  </body>
+</html>

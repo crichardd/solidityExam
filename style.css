@@ -1,0 +1,10 @@
+td, th{
+	width: 150px;
+	padding: 0.5em;
+	border: solid thin grey;
+}
+
+th{
+	background-color: grey;
+	color: white;
+}
